@@ -1,25 +1,22 @@
 console.log('------------- # 4');
 
 function logNums(a, b) {
-  if (a <= b) {
+  if (a < b) {
     console.log(a);
     a++;
-    if (a > b) {
-      return;
-    }
     logNums(a, b);
-  } else if (a >= b) {
+  } else if (a > b) {
     console.log(a);
     a--;
-    if (a < b) {
-      return;
-    }
     logNums(a, b);
+  } else {
+    console.log(a);
+    return;
   }
 }
 
 logNums(1, 5);
-logNums(5, 0);
+logNums(4, 0);
 
 console.log('------------- # 5');
 
@@ -33,11 +30,14 @@ button.addEventListener('click', function () {
 
 setInterval(() => {
   let now = new Date();
-  let hours = now.getHours();
-  let minutes = now.getMinutes();
-  let seconds = now.getSeconds();
+
+  let hours = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
+  let minutes =
+    now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
+  let seconds =
+    now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
 
   time.innerText = isFullFormat
     ? `${hours} : ${minutes} : ${seconds}`
     : `${hours} : ${minutes}`;
-}, 1000);
+}, 250);
