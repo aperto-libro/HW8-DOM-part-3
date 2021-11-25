@@ -32,12 +32,8 @@ setInterval(() => {
   let now = new Date();
 
   let hours = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
-  let minutes =
-    now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
-  let seconds =
-    now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
+  let minutes = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
+  let seconds = now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
 
-  time.innerText = isFullFormat
-    ? `${hours} : ${minutes} : ${seconds}`
-    : `${hours} : ${minutes}`;
+  time.innerText = isFullFormat ? `${hours} : ${minutes} : ${seconds}` : `${hours} : ${minutes}`;
 }, 250);
