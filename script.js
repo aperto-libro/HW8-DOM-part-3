@@ -28,7 +28,7 @@ let currentTime = function () {
   let hours = now.getHours() < 10 ? '0' + now.getHours() : now.getHours();
   let minutes = now.getMinutes() < 10 ? '0' + now.getMinutes() : now.getMinutes();
   let seconds = now.getSeconds() < 10 ? '0' + now.getSeconds() : now.getSeconds();
-  return `${hours} : ${minutes} : ${seconds}`;
+  return isFullFormat ? `${hours} : ${minutes} : ${seconds}` : `${hours} : ${minutes}`;
 };
 
 time.addEventListener('click', function () {
@@ -36,5 +36,5 @@ time.addEventListener('click', function () {
 });
 
 setInterval(() => {
-  time.innerText = isFullFormat ? currentTime() : currentTime().slice(0, 7);
+  time.innerText = currentTime();
 }, 250);
